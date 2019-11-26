@@ -64,6 +64,7 @@ chmonDialog::chmonDialog(wxWindow* parent,wxWindowID id)
   {
   //(*Initialize(chmonDialog)
   wxFlexGridSizer* FlexGridSizer1;
+
   Create(parent, id, _("CHMon"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE, _T("id"));
   FlexGridSizer1 = new wxFlexGridSizer(3, 2, 0, 0);
   m_lblMain = new wxStaticText(this, ID_STATICTEXT1, _("Changes Monitor Application:"), wxDefaultPosition, wxSize(469,13), wxALIGN_LEFT, _T("ID_STATICTEXT1"));
@@ -72,8 +73,7 @@ chmonDialog::chmonDialog(wxWindow* parent,wxWindowID id)
   FlexGridSizer1->Add(m_btnSelectFile, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
   m_txtAll = new wxTextCtrl(this, ID_TEXTCTRL1, wxEmptyString, wxDefaultPosition, wxSize(437,435), wxTE_MULTILINE|wxTE_READONLY, wxDefaultValidator, _T("ID_TEXTCTRL1"));
   wxFont m_txtAllFont = wxSystemSettings::GetFont(wxSYS_OEM_FIXED_FONT);
-  if ( !m_txtAllFont.Ok() )
-    m_txtAllFont = wxSystemSettings::GetFont(wxSYS_DEFAULT_GUI_FONT);
+  if ( !m_txtAllFont.Ok() ) m_txtAllFont = wxSystemSettings::GetFont(wxSYS_DEFAULT_GUI_FONT);
   m_txtAll->SetFont(m_txtAllFont);
   FlexGridSizer1->Add(m_txtAll, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
   Button1 = new wxButton(this, ID_BUTTON1, _("Quit"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON1"));
@@ -88,6 +88,7 @@ chmonDialog::chmonDialog(wxWindow* parent,wxWindowID id)
   m_tmMain.Start(10, false);
   FlexGridSizer1->Fit(this);
   FlexGridSizer1->SetSizeHints(this);
+
   Connect(ID_BUTTON2,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&chmonDialog::Onm_btnSelectFileClick);
   Connect(ID_BUTTON1,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&chmonDialog::OnQuit);
   Connect(ID_BUTTON3,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&chmonDialog::Onm_btnAboutClick);
