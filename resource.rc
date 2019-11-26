@@ -1,0 +1,6 @@
+aaaa ICON "chmon.ico"
+
+#include "wx/msw/wx.rc"
+
+ID_ANIM RCDATA "anim.gif"
+
